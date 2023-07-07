@@ -16,15 +16,52 @@ class HotDog {
 }
 
 
-class HotDogListPage extends StatelessWidget {
-  final List<HotDog> burgers = [
-     HotDog(
+class HotDogListPage extends StatefulWidget {
+  @override
+  _HotDogListPageState createState() => _HotDogListPageState();
+}
+
+class _HotDogListPageState extends State<HotDogListPage> {
+  List<HotDog> hotDogs = [
+    HotDog(
       name: 'Classic Hot Dog',
-      imageUrl: '/images/cachorro.png',
+      imageUrl: '/images/cao1.png',
+      price: 21.00,
+      description: 'Pão, salsicha, molho, tomate, milho, ervilha, cebola, ketchup e maionese',
+    ),
+    HotDog(
+      name: 'Especial Hot Dog',
+      imageUrl: '/images/cao2.png',
+      price: 30.00,
+      description: 'Pão, salsicha, molho, tomate, milho, ervilha, cebola, ketchup e maionese',
+    ),
+    HotDog(
+      name: 'Da Casa Hot Dog',
+      imageUrl: '/images/cao3.png',
+      price: 45.00,
+      description: 'Pão, salsicha, molho, tomate, milho, ervilha, cebola, ketchup e maionese',
+    ),
+    HotDog(
+      name: 'Inverno Hot Dog',
+      imageUrl: '/images/cao4.png',
+      price: 28.00,
+      description: 'Pão, salsicha, molho, tomate, milho, ervilha, cebola, ketchup e maionese',
+    ),
+    HotDog(
+      name: 'Hot Dog do Piru',
+      imageUrl: '/images/cao5.png',
+      price: 32.00,
+      description: 'Pão, salsicha, molho, tomate, milho, ervilha, cebola, ketchup e maionese',
+    ),
+    HotDog(
+      name: 'Hot Dog Caramelo',
+      imageUrl: '/images/cao6.png',
       price: 25.00,
       description: 'Pão, salsicha, molho, tomate, milho, ervilha, cebola, ketchup e maionese',
     ),
   ];
+
+  List<String> favoriteItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +72,10 @@ class HotDogListPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: ListView.builder(
           shrinkWrap: true,
-          itemCount: burgers.length * 6,
+          itemCount: hotDogs.length,
           itemBuilder: (context, index) {
-            final burgerIndex = index % burgers.length;
-            final burger = burgers[burgerIndex];
+            final hotDogIndex = index % hotDogs.length;
+            final hotDog = hotDogs[hotDogIndex];
 
             return ListTile(
               title: Row(
@@ -49,7 +86,7 @@ class HotDogListPage extends StatelessWidget {
                     height: 100.0,
                     child: ClipOval(
                       child: Image.asset(
-                        burger.imageUrl,
+                        hotDog.imageUrl,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -59,11 +96,11 @@ class HotDogListPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(burger.name),
+                        Text(hotDog.name),
                         SizedBox(height: 8.0),
-                        Text('R\$ ${burger.price.toStringAsFixed(2)}'),
+                        Text('R\$ ${hotDog.price.toStringAsFixed(2)}'),
                         SizedBox(height: 8.0),
-                        Text(burger.description),
+                        Text(hotDog.description),
                       ],
                     ),
                   ),
@@ -71,13 +108,13 @@ class HotDogListPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       // Lógica para adicionar o produto ao carrinho
-                        Navigator.push(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => DetailHotDog(
-                            productName: burger.name,
-                            price: burger.price,
-                            description:burger.description,
+                            productName: hotDog.name,
+                            price: hotDog.price,
+                            description: hotDog.description,
                           ),
                         ),
                       );
@@ -87,8 +124,20 @@ class HotDogListPage extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       // Lógica para adicionar o produto aos favoritos
+                      setState(() {
+                        if (favoriteItems.contains(hotDog.name)) {
+                          favoriteItems.remove(hotDog.name);
+                        } else {
+                          favoriteItems.add(hotDog.name);
+                        }
+                      });
+                      print(favoriteItems);
                     },
-                    icon: Icon(Icons.favorite_border),
+                    icon: Icon(
+                      favoriteItems.contains(hotDog.name)
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                    ),
                   ),
                 ],
               ),
