@@ -1,11 +1,56 @@
 import 'package:flutter/material.dart';
 import 'BurgerListPage.dart';
 import 'HotDogListPage.dart';
+import 'FavoritePage .dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   final String enteredName;
 
   HomePage({required this.enteredName});
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String searchText = '';
+  final TextEditingController _searchController = TextEditingController();
+
+  void onSearch(String searchText) {
+    if (searchText.toLowerCase() == 'hamburguer') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BurgerListPage(),
+        ),
+      );
+    } else if (searchText.toLowerCase() == 'hot dog') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HotDogListPage(),
+        ),
+      );
+    } else {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Nenhum item encontrado'),
+            content: Text('Nenhum item corresponde à sua pesquisa.'),
+            actions: [
+              TextButton(
+                child: Text('Fechar'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +75,12 @@ class HomePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextFormField(
+                    controller: _searchController,
+                    onChanged: (value) {
+                      setState(() {
+                        searchText = value;
+                      });
+                    },
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -45,7 +96,7 @@ class HomePage extends StatelessWidget {
                   icon: Icon(Icons.search),
                   color: Colors.white,
                   onPressed: () {
-                    // Implementar ação de pesquisa
+                    onSearch(searchText);
                   },
                 ),
               ],
@@ -58,7 +109,7 @@ class HomePage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 200.0, // Defina a altura desejada para o card
+                  height: 200.0,
                   child: Image.asset(
                     'images/promocao.png',
                     fit: BoxFit.cover,
@@ -84,21 +135,20 @@ class HomePage extends StatelessWidget {
                     child: Container(
                       child: GestureDetector(
                         onTap: () {
-                          // Lógica a ser executada quando o Card for tocado
-                            Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BurgerListPage(),
-                        ),
-                      );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BurgerListPage(),
+                            ),
+                          );
                         },
                         child: Card(
                           child: Column(
                             children: [
                               Image.asset(
-                                'images/burguer4.png',
+                                'images/bug8.png',
                                 width: 200.0,
-                                height: 220.0,
+                                height: 250,
                               ),
                               Text('Hamburguer'),
                             ],
@@ -112,7 +162,6 @@ class HomePage extends StatelessWidget {
                     child: Container(
                       child: GestureDetector(
                         onTap: () {
-                          // Lógica a ser executada quando o Card for tocado
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -124,9 +173,9 @@ class HomePage extends StatelessWidget {
                           child: Column(
                             children: [
                               Image.asset(
-                                'images/burguer4.png',
+                                'images/cao5.png',
                                 width: 200.0,
-                                height: 220.0,
+                                height: 250,
                               ),
                               Text('Hot Dog'),
                             ],
@@ -141,6 +190,17 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(height: 16.0),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => FavoritePage(favoriteItems: favoriteItems),
+          //   ),
+          // );
+        },
+        child: Icon(Icons.favorite),
       ),
     );
   }

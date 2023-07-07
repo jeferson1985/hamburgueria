@@ -126,6 +126,7 @@ class _BurgerListPageState extends State<BurgerListPage> {
                             productName: burger.name,
                             price: burger.price,
                             description: burger.description,
+                            imageUrl: burger.imageUrl,
                           ),
                         ),
                       );

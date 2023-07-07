@@ -4,11 +4,13 @@ class Detail extends StatelessWidget {
   final String productName;
   final double price;
   final String description;
+  final String imageUrl;
 
   Detail({
     required this.productName,
     required this.price,
     required this.description,
+    required this.imageUrl,
   });
 
   @override
@@ -22,7 +24,7 @@ class Detail extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              'images/burguercarrinho.png', // Substitua pelo caminho correto da imagem
+              imageUrl, // Substitua pelo caminho correto da imagem
               fit: BoxFit.cover,
               width: double.infinity,
             ),

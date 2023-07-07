@@ -115,6 +115,7 @@ class _HotDogListPageState extends State<HotDogListPage> {
                             productName: hotDog.name,
                             price: hotDog.price,
                             description: hotDog.description,
+                            imageUrl: hotDog.imageUrl,
                           ),
                         ),
                       );
