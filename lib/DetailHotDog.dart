@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Detail extends StatelessWidget {
+class DetailHotDog extends StatelessWidget {
   final String productName;
   final double price;
   final String description;
 
-  Detail({
+  DetailHotDog({
     required this.productName,
     required this.price,
     required this.description,
@@ -22,7 +22,7 @@ class Detail extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              'images/burguercarrinho.png', // Substitua pelo caminho correto da imagem
+              'images/detailhotdog.png', // Substitua pelo caminho correto da imagem
               fit: BoxFit.cover,
               width: double.infinity,
             ),

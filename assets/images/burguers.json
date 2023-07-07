@@ -1,0 +1,62 @@
+[
+    {
+      "name": "Classic Burger",
+      "imageUrl": "images/bug1.png",
+      "price": 40.00,
+      "description": "Pão, queijo, carne bovina, alface, tomate, cebola roxa, maionese e ketchup"
+    },
+    {
+      "name": "Cheeseburger",
+      "imageUrl": "images/bug2.png",
+      "price": 35.00,
+      "description": "Pão, queijo, carne bovina, alface, tomate, cebola roxa, maionese e ketchup"
+    },
+    {
+      "name": "BBQ Burger",
+      "imageUrl": "images/bug3.png",
+      "price": 45.00,
+      "description": "Pão, queijo, carne bovina, molho barbecue, cebola caramelizada, alface e tomate"
+    },
+    {
+      "name": "Veggie Burger",
+      "imageUrl": "images/bug4.png",
+      "price": 38.00,
+      "description": "Pão integral, hambúrguer vegetariano, queijo cheddar, alface, tomate e maionese vegana"
+    },
+    {
+      "name": "Chicken Burger",
+      "imageUrl": "images/bug5.png",
+      "price": 42.00,
+      "description": "Pão, frango grelhado, queijo prato, alface, tomate, maionese e molho especial"
+    },
+    {
+      "name": "Spicy Burger",
+      "imageUrl": "images/bug6.png",
+      "price": 39.00,
+      "description": "Pão, hambúrguer picante, queijo cheddar, cebola roxa, jalapeño e molho especial"
+    },
+    {
+      "name": "Bacon Burger",
+      "imageUrl": "images/bug7.png",
+      "price": 41.00,
+      "description": "Pão, hambúrguer, queijo prato, bacon, alface, tomate, cebola caramelizada e maionese"
+    },
+    {
+      "name": "Mushroom Burger",
+      "imageUrl": "images/bug8.png",
+      "price": 37.00,
+      "description": "Pão, hambúrguer, cogumelos salteados, queijo suíço, alface e maionese"
+    },
+    {
+      "name": "Double Cheeseburger",
+      "imageUrl": "images/bug1.png",
+      "price": 48.00,
+      "description": "Pão, dois hambúrgueres, queijo cheddar, alface, tomate, cebola roxa e molho especial"
+    },
+    {
+      "name": "Fish Burger",
+      "imageUrl": "images/bug2.png",
+      "price": 36.00,
+      "description": "Pão, filé de peixe empanado, queijo cheddar, alface, tomate e molho tártaro"
+    }
+  ]

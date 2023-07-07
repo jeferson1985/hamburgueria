@@ -72,48 +72,71 @@ class HomePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 16.0),
-          Card(
-            margin: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text('Categorias'),
-                ),
-                ListTile(
-                  leading: Image.asset(
-                      'images/hamburguer9.png',
-                      width: 56.0,
-                      height: 56.0,
-                    ),
-                  title: Text('Hamburguer'),
-                  onTap: () {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => BurgerListPage(),
+          Text('Categorias'),
+          Expanded(
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          // Lógica a ser executada quando o Card for tocado
+                            Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BurgerListPage(),
+                        ),
+                      );
+                        },
+                        child: Card(
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'images/burguer4.png',
+                                width: 200.0,
+                                height: 220.0,
+                              ),
+                              Text('Hamburguer'),
+                            ],
+                          ),
+                        ),
                       ),
-                    );
-                    // Implementar ação de clicar na categoria 1
-                  },
-                ),
-                ListTile(
-                  leading: Image.asset(
-                      'images/cachorro.png',
-                      width: 56.0,
-                      height: 56.0,
                     ),
-                  title: Text('Cachorro quente'),
-                  onTap: () {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HotDogListPage(),
+                  ),
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Container(
+                      child: GestureDetector(
+                        onTap: () {
+                          // Lógica a ser executada quando o Card for tocado
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HotDogListPage(),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'images/burguer4.png',
+                                width: 200.0,
+                                height: 220.0,
+                              ),
+                              Text('Hot Dog'),
+                            ],
+                          ),
+                        ),
                       ),
-                    );
-                    // Implementar ação de clicar na categoria 2
-                  },
-                ),
-              ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(height: 16.0),

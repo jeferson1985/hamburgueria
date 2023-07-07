@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'DetailHotDog.dart';
 
 class HotDog {
   final String name;
@@ -70,6 +71,16 @@ class HotDogListPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       // Lógica para adicionar o produto ao carrinho
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailHotDog(
+                            productName: burger.name,
+                            price: burger.price,
+                            description:burger.description,
+                          ),
+                        ),
+                      );
                     },
                     child: Text('Comprar'),
                   ),
