@@ -1,16 +1,5 @@
-# hamburgueria_app
+<h1>Hamburgueria Aplicativo</h1>
+<h1>Aplicação desenvolvida com flutter</h1>
 
-A new Flutter project.
+![Hamburgueria](https://github.com/jeferson1985/hamburgueria/assets/58534889/faa5f744-ad70-4b7e-8d10-7ec4188d2c1b)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
